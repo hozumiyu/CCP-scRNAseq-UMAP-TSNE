@@ -1,11 +1,28 @@
 # CCP-scRNAseq-UMAP-TSNE
-Code for "Analyzing scRNA-seq data by CCP-assisted UMAP and t-SNE" that was submitted to XXXX
 
-All the data used can be downloaded from GEO website with the Acession ID located on Figure 1. 
-The code used to process these raw files can be found at https://github.com/hozumiyu/SingleCellDataProcess.
-A toy example is provided using GSE57249 (https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE57249)
+**OVERVIEW**
 
-Description of the Content:
-plotting_features: Folder the contains the features for the visualization.
-algorithm: contains all the relevant code, ie CCP, UMAP and t-SNE dimensionality reduction algorithm.
+Code for "Analyzing scRNA-seq data by CCP-assisted UMAP and t-SNE" currently under review.
+
+To successfully reproduce the results, please modify the main.py. All the parameters have been defined, so uncomment the data of interest.
+
+A toy example has been provided using GSE75748 cell data.
+
+**Python Version**
+1) pandas v1.30
+2) numpy v1.20.3
+3) umap-lean v0.5.1
+4) scikit-learn v0.24.2
+5) matplotlib v.3.4.2
+
+**Content of this repository**
+1) ./algorithm/ : contains the code for dimensionality reduction and clustering
+2) ./plotting_features/ : contains the features to generate the figures
+3) ./results/: contain the results for the benchmaerk
+4) ./plots/ contain the codes to generate the plots
+5) ./data/: please place the data into this folder
+6) DR_CCP_TSNE_main.py contains the CCP-assisted t-SNE benchmark
+7) DR_CCP_UMAP_main.py contains the CCP-assisted UMAP benchmark
+8) DR_UMAP_TSNE_main.py contains the benchmark for unassisted UMAP and t-SNE
+9) main.py the overall code. Please comment out the data you want to test, and assign the random seed
 
