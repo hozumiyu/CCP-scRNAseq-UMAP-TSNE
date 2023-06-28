@@ -26,11 +26,11 @@ random_state = 1
 
 
 # compute CCP reduction
-#os.system('python DR_CCP_TSNE_main.py %s %d %.1f %d %s'%(data, n_components, cutoff, random_state, scaling))
+os.system('python DR_CCP_TSNE_main.py %s %d %.1f %d %s'%(data, n_components, cutoff, random_state, scaling))
 
 
 #compute CCP assisted t-SNE and UMAP
-#os.system('python DR_CCP_UMAP_main.py %s %d %.1f %d %s'%(data, n_components, cutoff, random_state, scaling))
+os.system('python DR_CCP_UMAP_main.py %s %d %.1f %d %s'%(data, n_components, cutoff, random_state, scaling))
 
 
 os.system('python DR_UMAP_TSNE_main.py %s %d'%(data, random_state))
