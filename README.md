@@ -28,7 +28,7 @@ Please run the following in your new virtual environment.
 There should not be any need to do modification to the code as long as your directory is set to the location of main.py
 
 To run the code, use the following:
-' python main.py dataset_name '
+`python main.py dataset_name `
 
 Currently, you can run GSE57249, GSE67835, GSE75748time, GSE75748cell, GSE82187, GSE84133human4, GSE84133mouse1, GSE94820
 
