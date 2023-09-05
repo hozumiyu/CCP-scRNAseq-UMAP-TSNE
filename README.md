@@ -22,7 +22,7 @@ For full details, please refer to https://arxiv.org/abs/2206.04189.
 wget will be required for preprocessing the data. 
 
 Please run the following in your new virtual environment.
-' pip install requirement.txt '
+` pip install requirement.txt `
 
 ## Running the code
 There should not be any need to do modification to the code as long as your directory is set to the location of main.py
