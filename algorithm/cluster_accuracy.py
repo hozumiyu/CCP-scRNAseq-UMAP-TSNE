@@ -20,8 +20,10 @@ def computeKMeans(X, y, max_state = 30):
     n_clusters = np.unique(y).shape[0]
     LABELS = np.zeros([max_state, X.shape[0]])
     for random_state in range(max_state):
-        myKM = KMeans(n_clusters = n_clusters, random_state = 1).fit(X)
-        LABELS[random_state, :] = myKM.labels_
+        with warnings.catch_warnings():
+            warnings.simplefilter("ignore")
+            myKM = KMeans(n_clusters = n_clusters, random_state = 1).fit(X)
+            LABELS[random_state, :] = myKM.labels_
     return LABELS
 
 
@@ -40,8 +42,7 @@ def computeNMI(LABELS, y):
 
 
 def computeClusteringScore(X, y, max_state = 10):
-    with warnings.catch_warnings():
-        LABELS = computeKMeans(X, y, max_state)
+    LABELS = computeKMeans(X, y, max_state)
     ari = computeARI(LABELS, y)
     nmi = computeNMI(LABELS, y)
     return ari, nmi

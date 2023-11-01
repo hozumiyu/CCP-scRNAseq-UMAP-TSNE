@@ -36,7 +36,7 @@ def computeNMF(X, n_components, random_state):
     return X_nmf
 
 
-def reduction_wrapper(X, method, outfile, random_state = 1, secondary_param = None, normalize = False, n_components = None):
+def reduction_wrapper(X, method, random_state = 1, secondary_param = None, normalize = False, n_components = None):
     '''
         Wrapper file for the UMAP, tSNE, NMF and PCA dimensionality reduction
         Input:
@@ -49,36 +49,15 @@ def reduction_wrapper(X, method, outfile, random_state = 1, secondary_param = No
         if normalize:
             X = StandardScaler().fit_transform(X)
         X_dr = computeUMAP(X, n_neighbors = secondary_param, random_state=random_state)
-        np.save(outfile, X_dr)
     elif method == 'TSNE':
         if normalize:
             X = StandardScaler().fit_transform(X)
         X_dr = computeTSNE(X, perplexity = secondary_param, random_state = random_state)
-        np.save(outfile, X_dr)
-        
-    if not os.path.exists(outfile):
-        if method == 'UMAP':
-            if normalize:
-                X = StandardScaler().fit_transform(X)
-            X_dr = computeUMAP(X, n_neighbors = secondary_param, random_state=random_state)
-            np.save(outfile, X_dr)
-        
-        elif method == 'TSNE':
-            if normalize:
-                X = StandardScaler().fit_transform(X)
-            X_dr = computeTSNE(X, perplexity = secondary_param, random_state = random_state)
-            np.save(outfile, X_dr)
-            
-        elif method == 'PCA':
-            X_dr = computePCA(X, n_components, random_state = random_state)
-            np.save(outfile, X_dr)
-        
-        elif method == 'NMF':
-            X_dr = computeNMF(X, n_components, random_state = random_state)
-            np.save(outfile, X_dr)
-        
-    else:
-        X_dr = np.load(outfile)
+    elif method == 'PCA':
+        X_dr = computePCA(X, n_components, random_state = random_state)
+    
+    elif method == 'NMF':
+        X_dr = computeNMF(X, n_components, random_state = random_state)
             
     
     return X_dr

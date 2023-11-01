@@ -19,7 +19,7 @@ def makeFolder(outpath):
     return
 
 def load_X(data, inpath, data_process_path):
-    if not os.path.exists(inpath + '%s_data.csv'%(data)):
+    if not os.path.exists(inpath + data + '/' '%s_data.csv'%(data)):
         os.system('python %s/main.py '%(data_process_path) + data + ' ' + inpath + ' ' + data_process_path)
     inpath = inpath + data + '/'
     X = pd.read_csv(inpath + '%s_data.csv'%(data))
@@ -30,7 +30,7 @@ def load_X(data, inpath, data_process_path):
 
 
 def load_y(data, inpath, data_process_path):
-    if not os.path.exists(inpath + '%s_labels.csv'%(data)):
+    if not os.path.exists(inpath + data + '/' + '%s_labels.csv'%(data)):
         os.system('python %s/main.py '%(data_process_path) + data + ' ' + inpath + ' ' + data_process_path)
     inpath = inpath + data + '/'
     y = pd.read_csv(inpath + '%s_labels.csv'%(data))
@@ -39,7 +39,7 @@ def load_y(data, inpath, data_process_path):
 
 
 
-def drop_sample(X, y):
+def drop_sample(X, y, min_cell = 15):
     original = X.shape[0]
     labels = np.unique(y)
     good_index = []

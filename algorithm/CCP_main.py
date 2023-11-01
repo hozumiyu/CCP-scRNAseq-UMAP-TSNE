@@ -60,15 +60,9 @@ def divide_features(X, n_components, cutoff = 0.8, random_state = 1):
     return index_features
 
 def CCP_wrapper(data, X, n_components, cutoff, random_state = 1):
-    outpath = './features/%s_features/'%(data)
-    outfile = '%s_ccp_nc%d_c%.1f_state%d.npy'%(data, n_components, cutoff, random_state)
     
-    if not os.path.exists(outpath + outfile):
-        index_feature = divide_features(X = X, n_components = n_components, cutoff = cutoff,  random_state = random_state)
-        myCCP = CCP(n_components = n_components)
-        X_ccp = myCCP.fit_transform(X, index_feature)
-        np.save(outpath + outfile, X_ccp)
-    else:
-        X_ccp = np.load(outpath + outfile)
+    index_feature = divide_features(X = X, n_components = n_components, cutoff = cutoff,  random_state = random_state)
+    myCCP = CCP(n_components = n_components)
+    X_ccp = myCCP.fit_transform(X, index_feature)
     return X_ccp
     
