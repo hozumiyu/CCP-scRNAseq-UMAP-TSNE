@@ -11,25 +11,26 @@ from sklearn.manifold import TSNE
 from umap import UMAP
 from sklearn.decomposition import NMF, PCA
 
+#TSNE
 def computeTSNE(X, perplexity, random_state):
     myTSNE = TSNE(random_state = random_state, perplexity = perplexity, init = 'pca')
     X_tsne = myTSNE.fit_transform(X)
     return X_tsne
 
-
+# UMAP
 def computeUMAP(X, n_neighbors, random_state):
     myUMAP = UMAP(random_state = random_state, n_neighbors = n_neighbors)
     X_umap = myUMAP.fit_transform(X)
     return X_umap
     
     
-    
+# PCA
 def computePCA(X, n_components, random_state):
     myPCA = PCA(n_components = n_components, random_state = random_state)
     X_pca = myPCA.fit_transform(X)
     return X_pca
 
-
+# NMF
 def computeNMF(X, n_components, random_state):
     myNMF = NMF(n_components = n_components, random_state =random_state , init = 'nndsvda')
     X_nmf = myNMF.fit_transform(X)
