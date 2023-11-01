@@ -39,7 +39,9 @@ Currently, you can run GSE57249, GSE67835, GSE75748time, GSE75748cell, GSE82187,
 The tutorial on how to run the CCP algorithm is provided in tutorial.npy
 
 ## Content of this repository
-1) ./algorithm/ : contains the code for dimensionality reduction and clustering
+*  ./algorithm/ : contains the code for dimensionality reduction and clustering
+*  *  auxilary.py : loading the dataset, and preprocessing the data
+  
 2) ./features/ : location of the output features after running main.py
 3) ./results/: contain the results for the benchmaerk
 4) ./plot_code/ contain the codes to generate the plots
