@@ -22,7 +22,7 @@ def computeKMeans(X, y, max_state = 30):
     n_clusters = np.unique(y).shape[0]
     LABELS = np.zeros([max_state, X.shape[0]])
     for random_state in range(max_state):
-        with warnings.catch_warnings():
+        with warnings.catch_warnings():   # There is a warning of memory leakage for windows. This is to surpress the warning
             warnings.simplefilter("ignore")
             myKM = KMeans(n_clusters = n_clusters, random_state = 1).fit(X)
             LABELS[random_state, :] = myKM.labels_
