@@ -60,7 +60,11 @@ def divide_features(X, n_components, cutoff = 0.8, random_state = 1):
     return index_features
 
 def CCP_wrapper(data, X, n_components, cutoff, random_state = 1):
-    
+    # This is a wrapper file for LV-gene integrated CCP
+    # X: data matrix
+    # n_components: number of super-genes
+    # cutoff: ratio of genes in the LV-genes
+    # random_state: seed
     index_feature = divide_features(X = X, n_components = n_components, cutoff = cutoff,  random_state = random_state)
     myCCP = CCP(n_components = n_components)
     X_ccp = myCCP.fit_transform(X, index_feature)
