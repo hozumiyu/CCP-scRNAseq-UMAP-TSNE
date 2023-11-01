@@ -40,14 +40,17 @@ The tutorial on how to run the CCP algorithm is provided in tutorial.npy
 
 ## Content of this repository
 *  ./algorithm/ : contains the code for dimensionality reduction and clustering
-*  *  auxilary.py : loading the dataset, and preprocessing the data
-  
-2) ./features/ : location of the output features after running main.py
-3) ./results/: contain the results for the benchmaerk
-4) ./plot_code/ contain the codes to generate the plots
-5) ./data/: the location of the data
-6) main.py: used to run the experiments
-7) SingleCellDataProcessing/: contains the processing code.
+   *  auxilary.py : loading the dataset, and preprocessing the data
+   *  CCP_main.py : Gene-partitioning and LV-gene algorithm, and the wrapper file for CCP
+   *  reduction.py: a wrapper file to run NMF, PCA, TSNE and UMAP
+   *  ./CCP/ : the CCP algorithm
+* ./CCP/ : CCP algorithm. Please see the tutorial
+* ./SingleCellDataProcessing/: contains the processing code.
+* main.py: used to run the experiments. See above for how to run this file.
+* ./results/: contain the results for the benchmaerk
+*  ./plotting_code/ contain the codes to generate the plots
+* ./plotting_features/: the features used for plotting. This is obtained by running main.py with random_state = 1
+* ./results/: contains the result from running the experiment as described in the paper.
 
 ## Citation
 1) Hozumi, Y., & Wei, G. W. (2023). Analyzing scRNA-seq data by CCP-assisted UMAP and t-SNE. arXiv preprint arXiv:2306.13750.
