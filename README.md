@@ -31,7 +31,7 @@ To run the code, use the following:
 `python main.py dataset_name random_state`
 
 For example, 
-'python GSE75748cell 1'
+`python main.py GSE75748cell 1`
 
 Currently, you can run GSE57249, GSE67835, GSE75748time, GSE75748cell, GSE82187, GSE84133human4, GSE84133mouse1, GSE94820
 
